@@ -1,0 +1,14 @@
+Panel
+ColorRect
+CollisionShape2D
+StaticBody2D
+Label
+CanvasLayer
+Timer
+PathFollow2D
+Path2D
+ProgressBar
+Area2D
+Marker2D
+Camera2D
+CharacterBody2D

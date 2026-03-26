@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://bvp0oy6d34s7n"]
+
+[ext_resource type="Script" uid="uid://oj7hj4kgw31t" path="res://levels/slime_survivor_l1.gd" id="1_yfw2a"]
+[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="2_n3uyw"]
+[ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://pine_tree.tscn" id="3_olprd"]
+[ext_resource type="PackedScene" uid="uid://umfmgfn5gae0" path="res://coin.tscn" id="4_3fykv"]
+
+[sub_resource type="Curve2D" id="Curve2D_5mrb7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -202, -185, 0, 0, 0, 0, 2107, -189, 0, 0, 0, 0, 2115, 1273, 0, 0, 0, 0, -210, 1273, 0, 0, 0, 0, -202, -189)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijk4o"]
+size = Vector2(16825.719, 111.5)
+
+[node name="Game2" type="Node2D" unique_id=1110718785]
+y_sort_enabled = true
+script = ExtResource("1_yfw2a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137466570]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1213873107]
+offset_left = -63.0
+offset_top = -67.0
+offset_right = 1982.0
+offset_bottom = 1156.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=532821437]
+
+[node name="CoinCounter" type="Label" parent="UI" unique_id=1028371946]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 250.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Monety: 0/5"
+
+[node name="Player" parent="." unique_id=1378474380 instance=ExtResource("2_n3uyw")]
+position = Vector2(978, 526)
+
+[node name="Path2D" type="Path2D" parent="Player" unique_id=1503695245]
+position = Vector2(-978, -526)
+curve = SubResource("Curve2D_5mrb7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D" unique_id=762578940]
+unique_name_in_owner = true
+position = Vector2(-202, -185)
+rotation = -0.0017323499
+
+[node name="PineTree" parent="." unique_id=1421319171 instance=ExtResource("3_olprd")]
+position = Vector2(3089, 2354)
+
+[node name="PineTree2" parent="." unique_id=1743795536 instance=ExtResource("3_olprd")]
+position = Vector2(-678, -958)
+
+[node name="PineTree3" parent="." unique_id=1746196144 instance=ExtResource("3_olprd")]
+position = Vector2(1373, 263)
+
+[node name="PineTree4" parent="." unique_id=614605361 instance=ExtResource("3_olprd")]
+position = Vector2(2189, 332)
+
+[node name="PineTree5" parent="." unique_id=1496433127 instance=ExtResource("3_olprd")]
+position = Vector2(1436, 918)
+
+[node name="Timer" type="Timer" parent="." unique_id=1235010606]
+autostart = true
+
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=1300233246]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen" unique_id=1101300462]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/ColorRect" unique_id=248028124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=1822865921]
+layout_mode = 2
+theme_override_font_sizes/font_size = 186
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=238592039]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Zagraj ponownie"
+
+[node name="MenuButton" type="Button" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=238592040]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Powrót do menu"
+
+[node name="Coin" parent="." unique_id=959815374 instance=ExtResource("4_3fykv")]
+position = Vector2(-2744, -1421)
+
+[node name="Coin5" parent="." unique_id=1048790931 instance=ExtResource("4_3fykv")]
+position = Vector2(3418, -584)
+
+[node name="Coin6" parent="." unique_id=1739734642 instance=ExtResource("4_3fykv")]
+position = Vector2(2729, -2550)
+
+[node name="Coin7" parent="." unique_id=1778990900 instance=ExtResource("4_3fykv")]
+position = Vector2(-2697, 2055)
+
+[node name="Coin4" parent="." unique_id=1251731116 instance=ExtResource("4_3fykv")]
+position = Vector2(-1321, 242)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1737557789]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=693265074]
+position = Vector2(197.54932, -2996.75)
+shape = SubResource("RectangleShape2D_ijk4o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1330817824]
+position = Vector2(4000, 2717)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_ijk4o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=617568294]
+position = Vector2(-4000, 2346)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_ijk4o")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1313155557]
+position = Vector2(348.8589, 3000)
+shape = SubResource("RectangleShape2D_ijk4o")
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOverScreen/ColorRect/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/ColorRect/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="collected" from="Coin" to="." method="_on_coin_collected"]
+[connection signal="collected" from="Coin5" to="." method="_on_coin_collected"]
+[connection signal="collected" from="Coin6" to="." method="_on_coin_collected"]
+[connection signal="collected" from="Coin7" to="." method="_on_coin_collected"]
+[connection signal="collected" from="Coin4" to="." method="_on_coin_collected"]

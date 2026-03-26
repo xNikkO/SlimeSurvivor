@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dbxxy4qpskjrp"]
+
+[ext_resource type="Script" uid="uid://3yypicy83uo5" path="res://levels/level_three_screen.gd" id="1_level3"]
+
+[node name="LevelThreeScreen" type="Control" unique_id=746950908]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_level3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=178807744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.05, 0.05, 1)
+
+[node name="SlimeGlow" type="ColorRect" parent="." unique_id=932467569]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.1, 0.1, 0.15)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=636697389]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2126132675]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 72
+text = "STREFA 3
+Gniazdo Bossa"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=271948792]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 24
+text = "To już koniec żartów. Przygotuj się na najgorsze."
+horizontal_alignment = 1
+
+[node name="StartLevel3Button" type="Button" parent="VBoxContainer" unique_id=551337038]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 40
+text = "Zmierz się z losem"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=1716615073]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.7, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 32
+text = "Poddaj się (Menu)"
+
+[connection signal="pressed" from="VBoxContainer/StartLevel3Button" to="." method="_on_start_level3_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

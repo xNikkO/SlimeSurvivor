@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cobxh53s23avo"]
+
+[ext_resource type="Script" uid="uid://b21ngstuv2koe" path="res://mobs/final_mob.gd" id="1_y7nq7"]
+[ext_resource type="PackedScene" uid="uid://ddiyvdir1edba" path="res://characters/slime/final_slime.tscn" id="2_gtvk4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p11y5"]
+radius = 182.02472
+
+[node name="final_mob" type="CharacterBody2D" unique_id=1079922890]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_y7nq7")
+
+[node name="FinalSlime" parent="." unique_id=2008890567 instance=ExtResource("2_gtvk4")]
+unique_name_in_owner = true
+scale = Vector2(3.4302652, 3.4302652)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1683062912]
+position = Vector2(-1, -92)
+shape = SubResource("CircleShape2D_p11y5")

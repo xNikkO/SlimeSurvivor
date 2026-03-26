@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://6n1tl3k0euna"]
+
+[ext_resource type="Script" uid="uid://bs7i1y5hwsn54" path="res://menu.gd" id="1_menu"]
+[ext_resource type="AudioStream" uid="uid://c0upj6hfxioow" path="res://sounds/game_music.mp3" id="2_music"]
+[ext_resource type="Texture2D" uid="uid://bixorewk5m1ky" path="res://MainMenuBackground.png" id="3_background"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0, 0.6509804, 0.31764707, 0.68235296)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.28485027, 0.2848503, 0.28485018, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48gv"]
+bg_color = Color(0.29219002, 0.29219005, 0.29218993, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecwwl"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Menu" type="Control" unique_id=1641549386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=987654322]
+stream = ExtResource("2_music")
+volume_db = -20.0
+autoplay = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=12345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_background")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1970110335]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 319.0
+offset_right = 1262.0
+offset_bottom = 553.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mae5d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1015690147]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=438847848]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 96
+text = "SLIME
+SURVIVOR"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1147159663]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9, 1, 0.9, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hy44")
+text = "Rozpocznij grę"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=889244929]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ecwwl")
+text = "Wyjdź z gry"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
