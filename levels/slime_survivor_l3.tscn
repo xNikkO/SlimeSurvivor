@@ -70,6 +70,7 @@ offset_right = 150.0
 offset_bottom = 60.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hrkox")
 theme_override_font_sizes/font_size = 32
 text = "Slime Boss"
 horizontal_alignment = 1
