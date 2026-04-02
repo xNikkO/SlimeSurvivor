@@ -126,7 +126,7 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 120
-text = "zgineles"
+text = "zginales"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=293847561]

@@ -4,9 +4,9 @@ res://characters/slime/final_slime.tscn::2100edeb719f7fcdc42e71c31693e7ea::17742
 res://characters/slime/slime.tscn::ffd88e0ba7ff49f589e46f619df4b061::1774294958::res://.godot/exported/133200997/export-00cd1686d0dcba26ac4404616e000a71-slime.scn
 res://levels/level_three_screen.tscn::9c9ae9b6bdc0b05f43b17b6fa11f6f59::1775166484::res://.godot/exported/133200997/export-7b463cf2b25b6eab256d51b558d6bb60-level_three_screen.scn
 res://levels/level_two_screen.tscn::40dc586a54006773dc338c4a5ae09ee6::1775166103::res://.godot/exported/133200997/export-93ab1ac9c81e4ccffe2e4ce99cc48455-level_two_screen.scn
-res://levels/slime_survivor_l1.tscn::4ef9bbf52074cecbcbcb7e83c7d6023e::1775168191::res://.godot/exported/133200997/export-c22f6cfcc3ac05014569773bc17260d8-slime_survivor_l1.scn
-res://levels/slime_survivor_l2.tscn::710a70ed106a7588b2d4fbb3a7373ce8::1775165525::res://.godot/exported/133200997/export-1f64afef271c4673bd65ac7bd56e577a-slime_survivor_l2.scn
-res://levels/slime_survivor_l3.tscn::69442f4b5b726d922b69461307d9e81a::1775168553::res://.godot/exported/133200997/export-442e9fc6b318bf064f0aae44b6074e13-slime_survivor_l3.scn
+res://levels/slime_survivor_l1.tscn::b8642d934015d76e40c1036edf5956d8::1775170172::res://.godot/exported/133200997/export-c22f6cfcc3ac05014569773bc17260d8-slime_survivor_l1.scn
+res://levels/slime_survivor_l2.tscn::84b340729422a230cbf0a5ac6adfe30f::1775170171::res://.godot/exported/133200997/export-1f64afef271c4673bd65ac7bd56e577a-slime_survivor_l2.scn
+res://levels/slime_survivor_l3.tscn::e42902a6fb7bfea97a8e0d99af10015f::1775170169::res://.godot/exported/133200997/export-442e9fc6b318bf064f0aae44b6074e13-slime_survivor_l3.scn
 res://levels/win_screen.tscn::929f55459c2eeb279824cb9f9da742a2::1775166496::res://.godot/exported/133200997/export-c64281a8cccb36503cc9806a59d476f9-win_screen.scn
 res://mobs/final_mob.tscn::1798b5db3f6543eb9b6d5785cd4099d9::1774561914::res://.godot/exported/133200997/export-80c8424a77aadb8f5219717ae8b0df40-final_mob.scn
 res://mobs/mega_mob.tscn::f6532364f7cfbca43f3e00992c0f1b01::1774295290::res://.godot/exported/133200997/export-7e2fecf7c458e1df2bd7362f958e37fa-mega_mob.scn
