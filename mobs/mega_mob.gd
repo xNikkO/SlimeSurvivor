@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 1
+var health = 5
 var speed = 250.0
 
 @onready var player = get_tree().get_first_node_in_group("player")

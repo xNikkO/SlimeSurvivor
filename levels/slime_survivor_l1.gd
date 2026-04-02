@@ -14,7 +14,7 @@ var generated_tree_positions = []
 
 func _ready():
 	$UI/CoinCounter.text = "Monety: %d/%d" % [coins_collected, COINS_TO_WIN]
-	
+	$Timer.wait_time = $Timer.wait_time / 1.2
 	generate_trees()
 	
 	await get_tree().create_timer(1.0).timeout

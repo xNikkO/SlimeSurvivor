@@ -14,7 +14,7 @@ var generated_lava_positions = []
 
 func _ready():
 	$UI/CoinCounter.text = "Monety: %d/%d" % [coins_collected, COINS_TO_WIN]
-	$Timer.wait_time = $Timer.wait_time / 1.8
+	$Timer.wait_time = $Timer.wait_time / 1.6
 	
 	generate_lava()
 	
