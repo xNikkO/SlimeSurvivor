@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dbxxy4qpskjrp"]
 
 [ext_resource type="Script" uid="uid://3yypicy83uo5" path="res://levels/level_three_screen.gd" id="1_level3"]
+[ext_resource type="FontFile" uid="uid://dgf0bfofqviab" path="res://fonts/Squidgy Slimes.ttf" id="2_bmwdg"]
+[ext_resource type="AudioStream" uid="uid://c0upj6hfxioow" path="res://sounds/game_music.mp3" id="3_music"]
 
 [node name="LevelThreeScreen" type="Control" unique_id=746950908]
 layout_mode = 3
@@ -10,6 +12,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_level3")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=123456789]
+stream = ExtResource("3_music")
+volume_db = -20.0
+autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=178807744]
 layout_mode = 1
@@ -56,6 +63,7 @@ theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_bmwdg")
 theme_override_font_sizes/font_size = 72
 text = "STREFA 3
 Gniazdo Bossa"
@@ -64,8 +72,9 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=271948792]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_bmwdg")
 theme_override_font_sizes/font_size = 24
-text = "To już koniec żartów. Przygotuj się na najgorsze."
+text = "To juz koniec zartow. Przygotuj sie na najgorsze i uwazaj na lawe."
 horizontal_alignment = 1
 
 [node name="StartLevel3Button" type="Button" parent="VBoxContainer" unique_id=551337038]
@@ -73,16 +82,18 @@ custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.9, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_bmwdg")
 theme_override_font_sizes/font_size = 40
-text = "Zmierz się z losem"
+text = "Zmierz sie z losem"
 
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=1716615073]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.7, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("2_bmwdg")
 theme_override_font_sizes/font_size = 32
-text = "Poddaj się (Menu)"
+text = "Poddaj sie (Menu)"
 
 [connection signal="pressed" from="VBoxContainer/StartLevel3Button" to="." method="_on_start_level3_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

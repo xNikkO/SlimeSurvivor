@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://eh13wea4avrb" path="res://levels/slime_survivor_l2.gd" id="1_cb28q"]
 [ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="2_hbr05"]
+[ext_resource type="FontFile" uid="uid://dgf0bfofqviab" path="res://fonts/Squidgy Slimes.ttf" id="2_ubdq7"]
 
 [sub_resource type="Curve2D" id="Curve2D_5mrb7"]
 _data = {
@@ -24,6 +25,7 @@ offset_left = -63.0
 offset_top = -67.0
 offset_right = 1982.0
 offset_bottom = 1156.0
+color = Color(0.6578289, 0.75424385, 0.98916703, 1)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=532821437]
 
@@ -33,6 +35,7 @@ offset_top = 30.0
 offset_right = 250.0
 offset_bottom = 80.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 48
 text = "Monety: 0/5"
 
@@ -46,6 +49,7 @@ offset_right = -30.0
 offset_bottom = 80.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 48
 text = "04:00"
 horizontal_alignment = 2
@@ -66,7 +70,7 @@ rotation = -0.0017323499
 autostart = true
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=1235010607]
-wait_time = 240.0
+wait_time = 180.0
 one_shot = true
 autostart = true
 
@@ -120,15 +124,17 @@ theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 120
-text = "POŻARTY"
+text = "zgineles"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=293847561]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 24
-text = "Zostałeś pochłonięty przez bezlitosną masę."
+text = "Tym razem slime'y wygraly..."
 horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=238592039]
@@ -136,16 +142,18 @@ custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.9, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 40
-text = "Powstań z martwych"
+text = "Powstan z martwych"
 
 [node name="MenuButton" type="Button" parent="GameOverScreen/ColorRect/VBoxContainer" unique_id=238592040]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.7, 0.5, 0.5, 1)
+theme_override_fonts/font = ExtResource("2_ubdq7")
 theme_override_font_sizes/font_size = 32
-text = "Ucieknij z podkulonym ogonem"
+text = "Poddaj sie (Menu)"
 
 [node name="EndMap" type="StaticBody2D" parent="." unique_id=1737557789]
 

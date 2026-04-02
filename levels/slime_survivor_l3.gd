@@ -4,19 +4,19 @@ var coins_collected = 0
 const COINS_TO_WIN = 10
 var mega_mobs_killed = 0
 
-const PINE_TREE_SCENE = preload("res://pine_tree.tscn")
-const TREE_COUNT = 70 # Najwięcej drzew na ostatnim poziomie
+const LAVA_SCENE = preload("res://objects/lava.tscn")
+const LAVA_COUNT = 50 
 const SPAWN_AREA_MIN = Vector2(-4000, -3000)
 const SPAWN_AREA_MAX = Vector2(4000, 3000)
-const MIN_DISTANCE_BETWEEN_TREES = 150
+const MIN_DISTANCE_BETWEEN_LAVA = 600
 
-var generated_tree_positions = []
+var generated_lava_positions = []
 
 func _ready():
 	$UI/CoinCounter.text = "Monety: %d/%d" % [coins_collected, COINS_TO_WIN]
 	$Timer.wait_time = $Timer.wait_time / 1.8
 	
-	generate_trees() # Generuj drzewa
+	generate_lava()
 	
 	await get_tree().create_timer(1.0).timeout
 	spawn_mega_mob()
@@ -27,31 +27,31 @@ func _process(delta):
 	var seconds = int(time_left) % 60
 	$UI/TimeLabel.text = "%02d:%02d" % [minutes, seconds]
 
-func generate_trees():
-	for i in range(TREE_COUNT):
-		var new_tree_position = Vector2.ZERO
+func generate_lava():
+	for i in range(LAVA_COUNT):
+		var new_lava_position = Vector2.ZERO
 		var valid_position_found = false
 		var attempts = 0
 		
 		while not valid_position_found and attempts < 100:
 			var random_x = randf_range(SPAWN_AREA_MIN.x, SPAWN_AREA_MAX.x)
 			var random_y = randf_range(SPAWN_AREA_MIN.y, SPAWN_AREA_MAX.y)
-			new_tree_position = Vector2(random_x, random_y)
+			new_lava_position = Vector2(random_x, random_y)
 			
 			valid_position_found = true
-			for existing_pos in generated_tree_positions:
-				if existing_pos.distance_to(new_tree_position) < MIN_DISTANCE_BETWEEN_TREES: # Poprawiona literówka
+			for existing_pos in generated_lava_positions:
+				if existing_pos.distance_to(new_lava_position) < MIN_DISTANCE_BETWEEN_LAVA: 
 					valid_position_found = false
 					break
 			attempts += 1
 			
 		if valid_position_found:
-			var tree = PINE_TREE_SCENE.instantiate()
-			tree.position = new_tree_position
-			add_child(tree)
-			generated_tree_positions.append(new_tree_position)
+			var lava = LAVA_SCENE.instantiate()
+			lava.position = new_lava_position
+			add_child(lava)
+			generated_lava_positions.append(new_lava_position)
 		else:
-			print("Nie udało się znaleźć miejsca dla drzewa po %d próbach." % attempts)
+			print("Nie udało się znaleźć miejsca dla lawy po %d próbach." % attempts)
 
 func spawn_mob():
 	var new_mob = preload("res://mobs/mob.tscn").instantiate()

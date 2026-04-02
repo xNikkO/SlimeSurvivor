@@ -1,23 +1,22 @@
 extends Node2D
 
 var coins_collected = 0
-const COINS_TO_WIN = 5
+const COINS_TO_WIN = 4
 var mega_mobs_killed = 0
 
-const PINE_TREE_SCENE = preload("res://pine_tree.tscn")
-const TREE_COUNT = 50 # Liczba drzew do wygenerowania
-const SPAWN_AREA_MIN = Vector2(-4000, -3000) # Minimalne granice obszaru spawnu
-const SPAWN_AREA_MAX = Vector2(4000, 3000) # Maksymalne granice obszaru spawnu
-const MIN_DISTANCE_BETWEEN_TREES = 150 # Minimalna odległość między drzewami
+const PINE_TREE_SCENE = preload("res://objects/pine_tree.tscn")
+const TREE_COUNT = 50
+const SPAWN_AREA_MIN = Vector2(-4000, -3000)
+const SPAWN_AREA_MAX = Vector2(4000, 3000)
+const MIN_DISTANCE_BETWEEN_TREES = 150
 
 var generated_tree_positions = []
 
 func _ready():
 	$UI/CoinCounter.text = "Monety: %d/%d" % [coins_collected, COINS_TO_WIN]
 	
-	generate_trees() # Generuj drzewa na początku poziomu
+	generate_trees()
 	
-	# Spawn pierwszego mega moba po 1 sekundzie
 	await get_tree().create_timer(1.0).timeout
 	spawn_mega_mob()
 
@@ -33,7 +32,7 @@ func generate_trees():
 		var valid_position_found = false
 		var attempts = 0
 		
-		while not valid_position_found and attempts < 100: # Ogranicz próby, aby uniknąć nieskończonej pętli
+		while not valid_position_found and attempts < 100:
 			var random_x = randf_range(SPAWN_AREA_MIN.x, SPAWN_AREA_MAX.x)
 			var random_y = randf_range(SPAWN_AREA_MIN.y, SPAWN_AREA_MAX.y)
 			new_tree_position = Vector2(random_x, random_y)
@@ -58,7 +57,6 @@ func spawn_mob():
 	var new_mob = preload("res://mobs/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	var spawn_pos = %PathFollow2D.global_position
-	# Zabezpieczenie przed spawnowaniem poza mapą (limity od -4000 do 4000 dla X i -3000 do 3000 dla Y)
 	spawn_pos.x = clamp(spawn_pos.x, -3800, 3800)
 	spawn_pos.y = clamp(spawn_pos.y, -2800, 2800)
 	new_mob.global_position = spawn_pos
@@ -69,7 +67,6 @@ func spawn_mega_mob():
 		var new_mega_mob = preload("res://mobs/mega_mob.tscn").instantiate()
 		%PathFollow2D.progress_ratio = randf()
 		var spawn_pos = %PathFollow2D.global_position
-		# Zabezpieczenie przed spawnowaniem poza mapą
 		spawn_pos.x = clamp(spawn_pos.x, -3800, 3800)
 		spawn_pos.y = clamp(spawn_pos.y, -2800, 2800)
 		new_mega_mob.global_position = spawn_pos
@@ -77,7 +74,6 @@ func spawn_mega_mob():
 
 func _on_mega_mob_died():
 	mega_mobs_killed += 1
-	# Poczekaj 3 sekundy i zresp kolejnego
 	await get_tree().create_timer(3.0).timeout
 	spawn_mega_mob()
 

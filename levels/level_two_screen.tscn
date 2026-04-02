@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c8rbhwx8v7ib"]
 
 [ext_resource type="Script" uid="uid://wp47ndjc66xj" path="res://levels/level_two_screen.gd" id="1_level2"]
+[ext_resource type="FontFile" uid="uid://dgf0bfofqviab" path="res://fonts/Squidgy Slimes.ttf" id="2_t7hti"]
+[ext_resource type="AudioStream" uid="uid://c0upj6hfxioow" path="res://sounds/game_music.mp3" id="3_music"]
 
 [node name="LevelTwoScreen" type="Control" unique_id=126581997]
 layout_mode = 3
@@ -11,6 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_level2")
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=123456789]
+stream = ExtResource("3_music")
+volume_db = -20.0
+autoplay = true
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=120902509]
 layout_mode = 1
 anchors_preset = 15
@@ -18,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08, 0.12, 0.08, 1)
+color = Color(2.8276816e-07, 0.12371644, 0.16719007, 1)
 
 [node name="SlimeGlow" type="ColorRect" parent="." unique_id=899161488]
 layout_mode = 1
@@ -56,16 +63,18 @@ theme_override_colors/font_color = Color(0.4, 0.8, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_t7hti")
 theme_override_font_sizes/font_size = 72
 text = "STREFA 2
-Głębiej w Las"
+kraina mrozu"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1098959912]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_t7hti")
 theme_override_font_sizes/font_size = 24
-text = "Slime'y są wściekłe i szybciej się poruszają."
+text = "Slime'y sa wsciekle i szybciej sie poruszaja na lodzie."
 horizontal_alignment = 1
 
 [node name="StartLevel2Button" type="Button" parent="VBoxContainer" unique_id=1854478272]
@@ -73,14 +82,16 @@ custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.9, 1, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_t7hti")
 theme_override_font_sizes/font_size = 40
-text = "Idź dalej"
+text = "Idz dalej"
 
 [node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=535419788]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_t7hti")
 theme_override_font_sizes/font_size = 32
 text = "Odpocznij w Menu"
 

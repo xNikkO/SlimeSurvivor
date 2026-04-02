@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://brwrwpsu6mi67"]
 
 [ext_resource type="Script" uid="uid://styk054gct1f" path="res://levels/win_screen.gd" id="1_win"]
+[ext_resource type="FontFile" uid="uid://dgf0bfofqviab" path="res://fonts/Squidgy Slimes.ttf" id="2_nitud"]
+[ext_resource type="AudioStream" uid="uid://c0upj6hfxioow" path="res://sounds/game_music.mp3" id="3_music"]
 
 [node name="WinScreen" type="Control" unique_id=1254906151]
 layout_mode = 3
@@ -11,6 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_win")
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=123456789]
+stream = ExtResource("3_music")
+volume_db = -20.0
+autoplay = true
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1077438854]
 layout_mode = 1
 anchors_preset = 15
@@ -18,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.05, 0.15, 0.1, 1)
+color = Color(0.34210822, 0.3321463, 0.2061564, 1)
 
 [node name="SlimeGlow" type="ColorRect" parent="." unique_id=1554380764]
 layout_mode = 1
@@ -35,6 +42,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.8, 0.2, 0.15)
 
+[node name="MenuButton" type="Button" parent="." unique_id=938805841]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 0
+offset_left = 735.0
+offset_top = 712.0
+offset_right = 1204.0
+offset_bottom = 792.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9, 1, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_nitud")
+theme_override_font_sizes/font_size = 40
+text = "Triumfalny Powrot (Menu)"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=828734108]
 layout_mode = 1
 anchors_preset = 8
@@ -42,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -200.0
-offset_right = 400.0
-offset_bottom = 200.0
+offset_left = -386.0
+offset_top = -203.0
+offset_right = 414.0
+offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
@@ -56,6 +76,7 @@ theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_nitud")
 theme_override_font_sizes/font_size = 96
 text = "BOSS POKONANY!"
 horizontal_alignment = 1
@@ -63,17 +84,10 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1047154148]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_nitud")
 theme_override_font_sizes/font_size = 32
-text = "Udało Ci się przetrwać inwazję slime'ów.
-Jesteś Prawdziwym Bohaterem."
+text = "Udalo Ci sie przetrwac inwazje slime'ow.
+Jestes Prawdziwym Bohaterem."
 horizontal_alignment = 1
 
-[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=938805841]
-custom_minimum_size = Vector2(400, 80)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.9, 1, 0.9, 1)
-theme_override_font_sizes/font_size = 40
-text = "Triumfalny Powrót (Menu)"
-
-[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

@@ -1,11 +1,11 @@
 extends Node2D
 
 var coins_collected = 0
-const COINS_TO_WIN = 5
+const COINS_TO_WIN = 8
 var mega_mobs_killed = 0
 
-const PINE_TREE_SCENE = preload("res://pine_tree.tscn")
-const TREE_COUNT = 60 # Nieco więcej drzew na drugim poziomie
+const PINE_TREE_SCENE = preload("res://objects/pine_tree_lvl2.tscn")
+const TREE_COUNT = 60
 const SPAWN_AREA_MIN = Vector2(-4000, -3000)
 const SPAWN_AREA_MAX = Vector2(4000, 3000)
 const MIN_DISTANCE_BETWEEN_TREES = 150
@@ -16,9 +16,8 @@ func _ready():
 	$UI/CoinCounter.text = "Monety: %d/%d" % [coins_collected, COINS_TO_WIN]
 	$Timer.wait_time = $Timer.wait_time / 1.4
 	
-	generate_trees() # Generuj drzewa
+	generate_trees()
 	
-	# Spawn pierwszego mega moba po 1 sekundzie
 	await get_tree().create_timer(1.0).timeout
 	spawn_mega_mob()
 
@@ -41,7 +40,7 @@ func generate_trees():
 			
 			valid_position_found = true
 			for existing_pos in generated_tree_positions:
-				if existing_pos.distance_to(new_tree_position) < MIN_DISTANCE_BETWEEN_TREES: # Poprawiona literówka
+				if existing_pos.distance_to(new_tree_position) < MIN_DISTANCE_BETWEEN_TREES:
 					valid_position_found = false
 					break
 			attempts += 1
@@ -59,7 +58,6 @@ func spawn_mob():
 	new_mob.speed = 250.0 * 1.3
 	%PathFollow2D.progress_ratio = randf()
 	var spawn_pos = %PathFollow2D.global_position
-	# Zabezpieczenie przed spawnowaniem poza mapą
 	spawn_pos.x = clamp(spawn_pos.x, -3800, 3800)
 	spawn_pos.y = clamp(spawn_pos.y, -2800, 2800)
 	new_mob.global_position = spawn_pos
@@ -70,7 +68,6 @@ func spawn_mega_mob():
 		var new_mega_mob = preload("res://mobs/mega_mob.tscn").instantiate()
 		%PathFollow2D.progress_ratio = randf()
 		var spawn_pos = %PathFollow2D.global_position
-		# Zabezpieczenie przed spawnowaniem poza mapą
 		spawn_pos.x = clamp(spawn_pos.x, -3800, 3800)
 		spawn_pos.y = clamp(spawn_pos.y, -2800, 2800)
 		new_mega_mob.global_position = spawn_pos
@@ -78,7 +75,6 @@ func spawn_mega_mob():
 
 func _on_mega_mob_died():
 	mega_mobs_killed += 1
-	# Poczekaj 3 sekundy i zresp kolejnego
 	await get_tree().create_timer(3.0).timeout
 	spawn_mega_mob()
 

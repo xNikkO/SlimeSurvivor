@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dm2fcwhbx6kx2"]
+
+[ext_resource type="Texture2D" uid="uid://c0y3314cmniei" path="res://objects/lava.png" id="1_46gd0"]
+[ext_resource type="Script" uid="uid://c7v3t5qj2z8xk" path="res://objects/lava.gd" id="2_script"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3gch"]
+radius = 29.0
+height = 170.0
+
+[node name="Lava" type="Area2D" unique_id=1421319171]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092206329]
+position = Vector2(2, -9)
+scale = Vector2(2, 2)
+texture = ExtResource("1_46gd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=825064082]
+position = Vector2(11, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_q3gch")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
